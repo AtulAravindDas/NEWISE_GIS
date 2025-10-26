@@ -82,9 +82,12 @@
                 {
                     center: [44.0, -71.0],
                     crs: L.CRS.EPSG3857,
-                    zoom: 6,
-                    zoomControl: true,
-                    preferCanvas: false
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
                 }
             );
 
@@ -212,9 +215,6 @@
             choropleth_cc65c90c46555c91a4ed2c035120e8a4.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
             choropleth_287e3c7d84ddb7a3d0900e13650e8747.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
             choropleth_d06e839b675209d1b1430c5bb6b4fa76.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
-            
-            
-            
         
     
             var choropleth_42f658dd5f87f9d1db61ac7e2bb9c9bf = L.featureGroup(
@@ -746,7 +746,17 @@
             }
         });
         
+       /* // Add hover effect to show cursor pointer
+        layer.on('mouseover', function(e) {
+            e.target.setStyle({
+                fillOpacity: 0.7
+            });
+        });
         
+        layer.on('mouseout', function(e) {
+            geo_json_e80d51c405604774c2cec808d08a3099.resetStyle(e.target);
+        });*/
     });
+    
 </script>
 </html>
