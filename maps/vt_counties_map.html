@@ -100,12 +100,9 @@
                 {
                     center: [44.0, -71.0],
                     crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 6,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
-
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false
                 }
             );
 
@@ -116,17 +113,16 @@
             var tile_layer_9496ae9066184987d0122edf076ff178 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
+                    minZoom: 0,
+                    maxZoom: 19,
+                    maxNativeZoom: 19,
+                    noWrap: false,
+                    attribution: "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+                    subdomains: "abc",
+                    detectRetina: false,
+                    tms: false,
+                    opacity: 1
+                }
             );
         
     
@@ -134,8 +130,7 @@
         
     
             var choropleth_b0e395c261a839e1bb13731e24d41b10 = L.featureGroup(
-                {
-}
+                {}
             );
         
     
@@ -721,18 +716,22 @@
                     "Healthcare" : choropleth_da2265b84e1e8a5955c884a00dd82df8,
                     "Crime Rate" : choropleth_03a6fd3bce0e10778cf821a61ce93284,
                     "Population" : choropleth_27798dbfb4e1d064d5fd16d9edf06f63,
-                    "State Info" : feature_group_8e94a420d5a69a9bbce5e57e48314278,
                 },
             };
             let layer_control_51a9ef46d0bea79b305a2bec8eea70ab = L.control.layers(
                 layer_control_51a9ef46d0bea79b305a2bec8eea70ab_layers.base_layers,
                 layer_control_51a9ef46d0bea79b305a2bec8eea70ab_layers.overlays,
                 {
-  "position": "topright",
-  "collapsed": true,
-  "autoZIndex": true,
-}
+                    position: "topright",
+                    collapsed: true,
+                    autoZIndex: true
+                }
             ).addTo(map_80a475049daea0dacf96a5ac9d7ab66d);
+            
+    // Ensure State Info stays on top when layers change
+    map_80a475049daea0dacf96a5ac9d7ab66d.on('overlayadd overlayremove', function() {
+        feature_group_8e94a420d5a69a9bbce5e57e48314278.bringToFront();
+    });
 
         
 </script>

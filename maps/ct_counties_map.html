@@ -100,12 +100,9 @@
                 {
                     center: [44.0, -71.0],
                     crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 6,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
-
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false
                 }
             );
 
@@ -116,17 +113,16 @@
             var tile_layer_74d3f3feeb5869f63ec7f1000bc078ed = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
+                    minZoom: 0,
+                    maxZoom: 19,
+                    maxNativeZoom: 19,
+                    noWrap: false,
+                    attribution: "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+                    subdomains: "abc",
+                    detectRetina: false,
+                    tms: false,
+                    opacity: 1
+                }
             );
         
     
@@ -134,8 +130,7 @@
         
     
             var choropleth_76b57de4ab548e2909a0177c021bf41b = L.featureGroup(
-                {
-}
+                {}
             );
         
     
@@ -159,10 +154,7 @@
         };
         var geo_json_fabcd9c39b5c1aa583e5870cd93806b3 = L.geoJson(null, {
                 onEachFeature: geo_json_fabcd9c39b5c1aa583e5870cd93806b3_onEachFeature,
-            
-                style: geo_json_fabcd9c39b5c1aa583e5870cd93806b3_styler,
-            ...{
-}
+                style: geo_json_fabcd9c39b5c1aa583e5870cd93806b3_styler
         });
 
         function geo_json_fabcd9c39b5c1aa583e5870cd93806b3_add (data) {
@@ -715,18 +707,22 @@
                     "Healthcare" : choropleth_8e3541e1670967f9b2a581d3f65cf9a9,
                     "Crime Rate" : choropleth_2a81b4a06ca06b4fd8ec7e49cdb38e85,
                     "Population" : choropleth_961564f0a4d9d026d882b12d9a2c6e47,
-                    "State Info" : feature_group_dd5896249223531cc5ecb77aeb76d692,
                 },
             };
             let layer_control_d19613a0093eb0cb7562a0d2083acbc3 = L.control.layers(
                 layer_control_d19613a0093eb0cb7562a0d2083acbc3_layers.base_layers,
                 layer_control_d19613a0093eb0cb7562a0d2083acbc3_layers.overlays,
                 {
-  "position": "topright",
-  "collapsed": true,
-  "autoZIndex": true,
-}
+                    position: "topright",
+                    collapsed: true,
+                    autoZIndex: true
+                }
             ).addTo(map_eec649f5e1b5df36f08dccd27d6d348c);
+            
+    // Ensure State Info stays on top when layers change
+    map_eec649f5e1b5df36f08dccd27d6d348c.on('overlayadd overlayremove', function() {
+        feature_group_dd5896249223531cc5ecb77aeb76d692.bringToFront();
+    });
 
         
 </script>

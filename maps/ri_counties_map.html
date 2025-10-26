@@ -100,12 +100,9 @@
                 {
                     center: [44.0, -71.0],
                     crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 6,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
-
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false
                 }
             );
 
@@ -116,17 +113,16 @@
             var tile_layer_930e6d84884cb084d87cffd984e10eb0 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
+                    minZoom: 0,
+                    maxZoom: 19,
+                    maxNativeZoom: 19,
+                    noWrap: false,
+                    attribution: "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+                    subdomains: "abc",
+                    detectRetina: false,
+                    tms: false,
+                    opacity: 1
+                }
             );
         
     
@@ -134,8 +130,7 @@
         
     
             var choropleth_13af0c6595c9fde5d1a700a6330936d8 = L.featureGroup(
-                {
-}
+                {}
             );
         
     
@@ -157,10 +152,7 @@
         };
         var geo_json_ec8ec24f0b075c57b1b26202835a7e28 = L.geoJson(null, {
                 onEachFeature: geo_json_ec8ec24f0b075c57b1b26202835a7e28_onEachFeature,
-            
-                style: geo_json_ec8ec24f0b075c57b1b26202835a7e28_styler,
-            ...{
-}
+                style: geo_json_ec8ec24f0b075c57b1b26202835a7e28_styler
         });
 
         function geo_json_ec8ec24f0b075c57b1b26202835a7e28_add (data) {
@@ -705,18 +697,22 @@
                     "Healthcare" : choropleth_9c1f4a0015b0ec24e002a062fe49bf46,
                     "Crime Rate" : choropleth_8990e468f8d2ad991da9684c19249b69,
                     "Population" : choropleth_1959f70157ab6f2da5047c1133ea9bd8,
-                    "County Info" : feature_group_36a2bdc7353829106218d5a4da0f810a,
                 },
             };
             let layer_control_cb5df28ce3588238505edc0f4c6833d5 = L.control.layers(
                 layer_control_cb5df28ce3588238505edc0f4c6833d5_layers.base_layers,
                 layer_control_cb5df28ce3588238505edc0f4c6833d5_layers.overlays,
                 {
-  "position": "topright",
-  "collapsed": true,
-  "autoZIndex": true,
-}
+                    position: "topright",
+                    collapsed: true,
+                    autoZIndex: true
+                }
             ).addTo(map_00f0cc246d8a6b217b6b48e4d869f86b);
+            
+    // Ensure County Info stays on top when layers change
+    map_00f0cc246d8a6b217b6b48e4d869f86b.on('overlayadd overlayremove', function() {
+        feature_group_36a2bdc7353829106218d5a4da0f810a.bringToFront();
+    });
 
         
 </script>
