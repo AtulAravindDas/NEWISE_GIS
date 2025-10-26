@@ -753,6 +753,19 @@
             geo_json_e80d51c405604774c2cec808d08a3099.resetStyle(e.target);
         });
     });
+    map_9a8332aadb382f7cc3a5175e9a3fdfee.on('overlayadd overlayremove', function(e) {
+    // List of data layer names
+    var dataLayers = ['Income', 'Education', 'Healthcare', 'Crime Rate', 'Population'];
+    
+    // Check if the toggled layer is one of our data layers
+    if (dataLayers.includes(e.name)) {
+        // Remove and re-add State Info to force a refresh
+        if (map_9a8332aadb382f7cc3a5175e9a3fdfee.hasLayer(feature_group_fdd0652bfc4ff344e1a2dd198092cf12)) {
+            map_9a8332aadb382f7cc3a5175e9a3fdfee.removeLayer(feature_group_fdd0652bfc4ff344e1a2dd198092cf12);
+            map_9a8332aadb382f7cc3a5175e9a3fdfee.addLayer(feature_group_fdd0652bfc4ff344e1a2dd198092cf12);
+        }
+    }
+});
     
 </script>
 </html>
