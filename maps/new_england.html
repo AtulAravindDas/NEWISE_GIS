@@ -772,18 +772,17 @@ map_9a8332aadb382f7cc3a5175e9a3fdfee.on('overlayadd', function(e) {
     };
     
     // If the added layer is one of our data layers
-    if (dataLayers.hasOwnProperty(e.name)) {
-        // Remove all other data layers
-        for (var layerName in dataLayers) {
-            if (layerName !== e.name) {
-                if (map_9a8332aadb382f7cc3a5175e9a3fdfee.hasLayer(dataLayers[layerName])) {
+    if (dataLayers.hasOwnProperty(e.name) && e.name !== 'State Info') {
+        // Remove all other data layers except the one just added
+        setTimeout(function() {
+            for (var layerName in dataLayers) {
+                if (layerName !== e.name) {
                     map_9a8332aadb382f7cc3a5175e9a3fdfee.removeLayer(dataLayers[layerName]);
                 }
             }
-        }
+        }, 10);
     }
-});
-    
+});    
     
 </script>
 </html>
