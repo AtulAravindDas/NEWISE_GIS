@@ -1,0 +1,7 @@
+COUNTY,Population,Income (per capita),"Education 
+(high school or higher attendance rate)",Health (life expectancy),Crime rate (per population)
+BRISTOL,"50,568","$58,817",93.50%,80.7,0.044
+KENT,"171,278","$50,140",92.50%,78.2,0.176
+NEWPORT,"83,832","$60,198",94.80%,82.1,0.0659
+PROVIDENCE,"660,615","$40,359",86.40%,78.2,0.637
+WASHINGTON,"129,982","$58,997",96.50%,80.3,0.0769
