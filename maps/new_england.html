@@ -211,6 +211,13 @@
         .text("Income per Capita ($)");
     
             choropleth_38cdc72c1fdfe33e5e04929080f44247.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
+            choropleth_42f658dd5f87f9d1db61ac7e2bb9c9bf.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
+            choropleth_cc65c90c46555c91a4ed2c035120e8a4.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
+            choropleth_287e3c7d84ddb7a3d0900e13650e8747.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
+            choropleth_d06e839b675209d1b1430c5bb6b4fa76.addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
+            
+            
+            
         
     
             var choropleth_42f658dd5f87f9d1db61ac7e2bb9c9bf = L.featureGroup(
@@ -753,19 +760,7 @@
             geo_json_e80d51c405604774c2cec808d08a3099.resetStyle(e.target);
         });
     });
-    map_9a8332aadb382f7cc3a5175e9a3fdfee.on('overlayadd overlayremove', function(e) {
-    // List of data layer names
-    var dataLayers = ['Income', 'Education', 'Healthcare', 'Crime Rate', 'Population'];
     
-    // Check if the toggled layer is one of our data layers
-    if (dataLayers.includes(e.name)) {
-        // Remove and re-add State Info to force a refresh
-        if (map_9a8332aadb382f7cc3a5175e9a3fdfee.hasLayer(feature_group_fdd0652bfc4ff344e1a2dd198092cf12)) {
-            map_9a8332aadb382f7cc3a5175e9a3fdfee.removeLayer(feature_group_fdd0652bfc4ff344e1a2dd198092cf12);
-            map_9a8332aadb382f7cc3a5175e9a3fdfee.addLayer(feature_group_fdd0652bfc4ff344e1a2dd198092cf12);
-        }
-    }
-});
     
 </script>
 </html>
