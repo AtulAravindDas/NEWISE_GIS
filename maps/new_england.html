@@ -759,30 +759,6 @@
         layer.on('mouseout', function(e) {
             geo_json_e80d51c405604774c2cec808d08a3099.resetStyle(e.target);
         });
-    });
-    // Ensure only one data layer is visible at a time
-map_9a8332aadb382f7cc3a5175e9a3fdfee.on('overlayadd', function(e) {
-    // List of all data layers
-    var dataLayers = {
-        'Income': choropleth_38cdc72c1fdfe33e5e04929080f44247,
-        'Education': choropleth_42f658dd5f87f9d1db61ac7e2bb9c9bf,
-        'Healthcare': choropleth_cc65c90c46555c91a4ed2c035120e8a4,
-        'Crime Rate': choropleth_287e3c7d84ddb7a3d0900e13650e8747,
-        'Population': choropleth_d06e839b675209d1b1430c5bb6b4fa76
-    };
-    
-    // If the added layer is one of our data layers
-    if (dataLayers.hasOwnProperty(e.name) && e.name !== 'State Info') {
-        // Remove all other data layers except the one just added
-        setTimeout(function() {
-            for (var layerName in dataLayers) {
-                if (layerName !== e.name) {
-                    map_9a8332aadb382f7cc3a5175e9a3fdfee.removeLayer(dataLayers[layerName]);
-                }
-            }
-        }, 10);
-    }
-});    
-    
+    });    
 </script>
 </html>
