@@ -1,0 +1,10 @@
+COUNTY,Population,Income (per capita),"Education 
+(high school or higher attendance rate)",Health (life expectancy),Crime rate (per population)
+FAIRFIELD,"62,508","$83,636",96.90%,82.1,0.305
+HARTFORD,"119,674","$26,189",76.30%,79.4,0.218
+LITCHFIELD,"8,249","$61,908",95.20%,79.2,0.052
+MIDDLESEX,"164,759","$28,251",95.00%,80.8,0.042
+NEW HAVEN,"135,307","$33,084",88.30%,79.2,0.299
+NEW LONDON,"27,199","$33,888",88.00%,79.5,0.068
+TOLLAND,"14,556","$69,283",97.60%,81.3,0.007
+WINDHAM,"117,000","$71,581",84.40%,78,0.01
