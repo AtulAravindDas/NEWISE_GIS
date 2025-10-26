@@ -1,0 +1,12 @@
+COUNTY,Population,Income (per capita),"Education 
+(high school or higher attendance rate)",Health (life expectancy),Crime rate (per population)
+BELKNAP,"60,088","$50,886",94.00%,77.1,0.075
+CARROLL,"47,818","$49,562",95.60%,77.2,0.025
+CHESHIRE,"77,117","$45,561",94.10%,79.6,0.0375
+COÖS,"33,055","$36,850",89.50%,77.2,0.025
+GRAFTON,"89,118","$50,133",95.50%,80.7,0.025
+HILLSBOROUGH,"400,721","$53,463",93.00%,79.4,0.175
+MERRIMACK,"146,445","$47,178",94.60%,79.5,0.2
+ROCKINGHAM,"295,223","$59,571",96.10%,80.8,0.3
+STRAFFORD,"123,143","$42,999",93.90%,78.2,0.1
+SULLIVAN,"43,742","$41,921",91.10%,79.7,0.0375
