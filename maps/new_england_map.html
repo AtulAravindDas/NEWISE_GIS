@@ -82,12 +82,9 @@
                 {
                     center: [44.0, -71.0],
                     crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 6,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
-
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false
                 }
             );
 
@@ -98,17 +95,16 @@
             var tile_layer_d6775027f1fedb79a5476e142ed8244b = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
+                    minZoom: 0,
+                    maxZoom: 19,
+                    maxNativeZoom: 19,
+                    noWrap: false,
+                    attribution: "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+                    subdomains: "abc",
+                    detectRetina: false,
+                    tms: false,
+                    opacity: 1
+                }
             );
         
     
@@ -116,8 +112,7 @@
         
     
             var choropleth_38cdc72c1fdfe33e5e04929080f44247 = L.featureGroup(
-                {
-}
+                {}
             );
         
     
@@ -141,10 +136,7 @@
         };
         var geo_json_b40fb51001966e28b4b3d0e2e1dfe1dd = L.geoJson(null, {
                 onEachFeature: geo_json_b40fb51001966e28b4b3d0e2e1dfe1dd_onEachFeature,
-            
-                style: geo_json_b40fb51001966e28b4b3d0e2e1dfe1dd_styler,
-            ...{
-}
+                style: geo_json_b40fb51001966e28b4b3d0e2e1dfe1dd_styler
         });
 
         function geo_json_b40fb51001966e28b4b3d0e2e1dfe1dd_add (data) {
@@ -707,6 +699,64 @@
 }
             ).addTo(map_9a8332aadb382f7cc3a5175e9a3fdfee);
             
+    // Add click handlers to make states clickable
+    geo_json_e80d51c405604774c2cec808d08a3099.eachLayer(function(layer) {
+        // Add hover effect for clickable states
+        layer.on('mouseover', function(e) {
+            var stateName = layer.feature.properties.NAME;
+            var hasCountyMap = ['massachusetts', 'maine', 'new hampshire', 'vermont', 'rhode island', 'connecticut'].includes(stateName.toLowerCase());
+            
+            if (hasCountyMap) {
+                e.target.setStyle({
+                    weight: 3,
+                    color: '#666',
+                    fillOpacity: 0.7
+                });
+                if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                    e.target.bringToFront();
+                }
+                // Change cursor to pointer
+                map_9a8332aadb382f7cc3a5175e9a3fdfee.getContainer().style.cursor = 'pointer';
+            }
+        });
+        
+        layer.on('mouseout', function(e) {
+            geo_json_e80d51c405604774c2cec808d08a3099.resetStyle(e.target);
+            map_9a8332aadb382f7cc3a5175e9a3fdfee.getContainer().style.cursor = '';
+        });
+        
+        layer.on('click', function(e) {
+            var stateName = layer.feature.properties.NAME;
+            var stateFile = '';
+            
+            // Map state names to their county map files
+            switch(stateName.toLowerCase()) {
+                case 'massachusetts':
+                    stateFile = 'mass_counties_map.html';
+                    break;
+                case 'maine':
+                    stateFile = 'me_counties_map.html';
+                    break;
+                case 'new hampshire':
+                    stateFile = 'nh_counties_map.html';
+                    break;
+                case 'vermont':
+                    stateFile = 'vt_counties_map.html';
+                    break;
+                case 'rhode island':
+                    stateFile = 'ri_counties_map.html';
+                    break;
+                case 'connecticut':
+                    stateFile = 'ct_counties_map.html';
+                    break;
+            }
+            
+            if (stateFile) {
+                console.log('Navigating to: ' + stateFile);
+                window.location.href = stateFile;
+            }
+        });
+    });
 
         
 </script>
